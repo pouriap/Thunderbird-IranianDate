@@ -1,0 +1,5 @@
+radio[pane=paneJalaliDateFormat] {
+  /*list-style-image:url("chrome://jalalidateformat/skin/icon32.png");*/
+  display: none;
+  visibility: hidden;
+}

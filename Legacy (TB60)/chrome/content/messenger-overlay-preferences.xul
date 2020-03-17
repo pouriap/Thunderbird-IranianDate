@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://jalalidateformat/skin/style.css" style="text/css"?>
+
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <prefwindow id="MailPreferences">
+        <prefpane id="paneJalaliDateFormat">
+            <preferences>
+                <preference id="extensions.jalaliDateFormat.sortDateCol"
+		            name="extensions.jalaliDateFormat.sortDateCol"
+                            type="bool"/>
+                <preference id="extensions.jalaliDateFormat.sortReceivedCol"
+		            name="extensions.jalaliDateFormat.sortReceivedCol"
+                            type="bool"/>
+            </preferences>
+            <tabbox id="jalaliDateFormatTabBox">
+                <tabs id="jalaliDateFormatTabs">
+                    <tab id="jalaliDateFormatPreferencesTabPreferences"
+                         label="Date Format Preferences"/>
+                </tabs>
+                <tabpanels id="jalaliDateFormatTabPanels" flex="1">
+
+                    <tabpanel id="jalaliDateFormatTabPanelPreferences" orient="vertical">
+                        <vbox id="jalaliDateFormatPreferencesBoxPreferences">
+               <checkbox id="jalaliDateFormatSortDateCol" label="Enable on Date column" preference="extensions.jalaliDateFormat.sortDateCol"/>
+               <description>Apply Jalali date format to the Date column.</description>
+               <separator class="groove-thin"/>
+               <checkbox id="jalaliDateFormatSortReceivedCol" label="Enable on Received column" preference="extensions.jalaliDateFormat.sortReceivedCol"/>
+               <description>Apply Jalali date format to the Received column.</description>
+               <separator class="groove-thin"/>
+               <description>* Requires restart</description>
+			</vbox>
+                    </tabpanel>
+                </tabpanels>
+            </tabbox>
+        </prefpane>
+    </prefwindow>
+
+  <!-- include our javascript files -->
+  <script type="text/javascript" src="chrome://jalalidateformat/content/namespace.js"/> 
+  <script type="text/javascript" src="chrome://jalalidateformat/content/messenger-overlay-preferences.js"/> 
+</overlay>

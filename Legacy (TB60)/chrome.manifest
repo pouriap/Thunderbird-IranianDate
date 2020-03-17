@@ -1,0 +1,7 @@
+content    jalalidateformat    chrome/content/
+
+skin    jalalidateformat classic/1.0 skins/classic/
+
+overlay chrome://messenger/content/messenger.xul chrome://jalalidateformat/content/date_col_overlay.xul
+overlay chrome://messenger/content/messenger.xul chrome://jalalidateformat/content/date_col_overlay.xul
+overlay chrome://messenger/content/preferences/preferences.xul chrome://jalalidateformat/content/messenger-overlay-preferences.xul
