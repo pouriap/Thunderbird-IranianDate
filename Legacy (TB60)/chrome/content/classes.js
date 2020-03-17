@@ -1,4 +1,5 @@
-JalaliDateFormat.PrefManager = function() {
+IRDPrefManager = function() {
+
     var startPoint="extensions.jalaliDateFormat.";
 
     var pref=Components.classes["@mozilla.org/preferences-service;1"].
@@ -91,4 +92,47 @@ JalaliDateFormat.PrefManager = function() {
     }
 }
 
-JalaliDateFormat.prefs = new JalaliDateFormat.PrefManager();
+
+IRDColumnHandler = function(colName){
+
+	this.getCellText=function(row, col){
+
+		var header = gDBView.getMsgHdrAt(row);
+		var date = new Date(this._fetchDate(header));
+
+		var options = {
+			"year": "2-digit",
+			"month": "numeric",
+			"day": "numeric"
+		};
+
+		var dateString = date.toLocaleDateString('fa-IR', options);
+
+		return dateString;
+	}
+
+	this._fetchDate=function(header){
+		if(colName == "dateCol"){
+			return header.date / 1000;
+		} 
+		else if(colName == "receivedCol"){
+			return hdr.getUint32Property("dateReceived") * 1000;
+		} 
+		else{
+			return null;
+		}
+	}
+
+	this.getSortStringForRow=function(hdr){return hdr.date;}
+
+	this.isString=function() {return true;}
+
+	this.getCellProperties=function(row, col, props){}
+
+	this.getRowProperties=function(row, props){}
+
+	this.getImageSrc=function(row, col){return null;}
+
+	thisgetSortLongForRow=function(hdr){return hdr.date;}
+
+}

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<?xml-stylesheet href="chrome://jalalidateformat/skin/style.css" style="text/css"?>
+<?xml-stylesheet href="chrome://iraniandate/skin/style.css" style="text/css"?>
 
 <overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
@@ -37,6 +37,6 @@
     </prefwindow>
 
   <!-- include our javascript files -->
-  <script type="text/javascript" src="chrome://jalalidateformat/content/namespace.js"/> 
-  <script type="text/javascript" src="chrome://jalalidateformat/content/messenger-overlay-preferences.js"/> 
+  <script type="text/javascript" src="chrome://iraniandate/content/namespace.js"/> 
+  <script type="text/javascript" src="chrome://iraniandate/content/messenger-overlay-preferences.js"/> 
 </overlay>

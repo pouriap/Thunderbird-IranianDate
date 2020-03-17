@@ -1,6 +1,6 @@
 /**
  * Jalali Date Format namespace.
  */
-if (typeof JalaliDateFormat == "undefined") {
-  var JalaliDateFormat = {};
+if (typeof IRDApp == "undefined") {
+  var IRDApp = {};
 };
