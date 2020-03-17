@@ -1,22 +1,18 @@
+
 IRDApp.prefsManager = new IRDPrefManager();
 
-createObserver = {
+observer = {
 	// Components.interfaces.nsIObserver
 	observe: function(aMsgFolder, aTopic, aData)
 	{
-		if (IRDApp.prefsManager.getValue('showInDateColumn', true)) {
-			gDBView.addColumnHandler("dateCol", new IRDColumnHandler('dateCol'));
-		}
-
-		if (IRDApp.prefsManager.getValue('showInReceivedColumn', true)) {
-			gDBView.addColumnHandler("receivedCol", new IRDColumnHandler('receivedCol'));
-		}
+		gDBView.addColumnHandler("irDateCol", new IRDColumnHandler('irDateCol'));
+		gDBView.addColumnHandler("irReceivedCol", new IRDColumnHandler('irReceivedCol'));
 	}
 };
 
 doOnLoad = function() {
 	var ObserverService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
-	ObserverService.addObserver(createObserver, "MsgCreateDBView", false);
+	ObserverService.addObserver(observer, "MsgCreateDBView", false);
 };
 
 window.addEventListener("load", doOnLoad, false);

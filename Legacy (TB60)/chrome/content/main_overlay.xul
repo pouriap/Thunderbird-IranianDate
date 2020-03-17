@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<overlay id="sample" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<!-- add Iranian date columns -->
+	<tree id="threadTree">
+		<treecols id="threadCols">
+			<splitter class="tree-splitter" />
+			<treecol id="irDateCol" persist="hidden ordinal width" currentView="unthreaded" flex="2"
+				label="Date(Iranian)" tooltiptext="Sort by date" />
+			<splitter class="tree-splitter" />
+			<treecol id="irReceivedCol" persist="hidden ordinal width" currentView="unthreaded" flex="2"
+				label="Received(Iranian)" tooltiptext="Sort by received date" />
+		</treecols>
+	</tree>
+
+	<!-- include our javascript files -->
+	<script type="text/javascript" src="chrome://iraniandate/content/namespace.js" />
+	<script type="text/javascript" src="chrome://iraniandate/content/classes.js"/> 
+	<script type="text/javascript" src="chrome://iraniandate/content/main.js"/> 
+
+</overlay>

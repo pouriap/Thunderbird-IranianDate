@@ -2,5 +2,5 @@ content    iraniandate    chrome/content/
 
 skin    iraniandate classic/1.0 skins/classic/
 
-overlay chrome://messenger/content/messenger.xul chrome://iraniandate/content/date_col_overlay.xul
+overlay chrome://messenger/content/messenger.xul chrome://iraniandate/content/main_overlay.xul
 overlay chrome://messenger/content/preferences/preferences.xul chrome://iraniandate/content/messenger-overlay-preferences.xul

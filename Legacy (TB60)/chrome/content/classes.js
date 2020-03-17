@@ -112,11 +112,11 @@ IRDColumnHandler = function(colName){
 	}
 
 	this._fetchDate=function(header){
-		if(colName == "dateCol"){
+		if(colName == "irDateCol"){
 			return header.date / 1000;
 		} 
-		else if(colName == "receivedCol"){
-			return hdr.getUint32Property("dateReceived") * 1000;
+		else if(colName == "irReceivedCol"){
+			return header.getUint32Property("dateReceived") * 1000;
 		} 
 		else{
 			return null;

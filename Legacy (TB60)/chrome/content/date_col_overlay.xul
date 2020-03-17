@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<overlay id="iraniandateoverlay"
-         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-  
-  <!-- include our javascript files -->
-  <script type="text/javascript" src="chrome://iraniandate/content/namespace.js"/> 
-  <script type="text/javascript" src="chrome://iraniandate/content/classes.js"/> 
-  <script type="text/javascript" src="chrome://iraniandate/content/main.js"/> 
-</overlay>
