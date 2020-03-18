@@ -6,6 +6,7 @@
         <em:version>1.0</em:version>
         <em:description>Convert Date Column To Iranian (Persian/Jalali) Date Format.</em:description>
         <em:creator>Pouria Pirhadi</em:creator>
+ 		<em:optionsURL>chrome://iraniandate/content/options.xul</em:optionsURL>
         <em:iconURL>chrome://iraniandate/content/icon.png</em:iconURL>
         <em:type>2</em:type>
 

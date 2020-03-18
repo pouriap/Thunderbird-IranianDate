@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin" type="text/css"?>
+<?xml-stylesheet href="chrome://messenger/skin/preferences/preferences.css" type="text/css"?>
+
+<prefwindow id="iraniandate-options" title="Iranian Date Options"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<prefpane id="options-pane" label="Date Format Settings">
+
+		<preferences>
+			<preference id="pref-yearStyle" name="extensions.iraniandate.yearStyle" type="string" />
+			<preference id="pref-monthStyle" name="extensions.iraniandate.monthStyle" type="string" />
+			<preference id="pref-dayStyle" name="extensions.iraniandate.dayStyle" type="string" />
+			<preference id="pref-weekStyle" name="extensions.iraniandate.weekStyle" type="string" />
+		</preferences>
+
+		<vbox align="start">
+			<hbox>
+				<label control="year-style" value="Year Style: " />
+				<textbox preference="pref-yearStyle" id="year-style" style="float:right;"/>
+			</hbox>
+			<hbox>
+				<label control="month-style" value="Month Style: " />
+				<textbox preference="pref-monthStyle" id="month-style" style="float:right;"/>
+			</hbox>
+			<hbox>
+				<label control="day-style" value="Day Style: " />
+				<textbox preference="pref-dayStyle" id="day-style" style="float:right;" />
+			</hbox>
+			<hbox>
+				<label control="week-style" value="Week Style: " />
+				<menulist preference="pref-weekStyle" id="week-style" style="float:right;">
+					<menupopup>
+						<menuitem label="do not show" value="" />
+						<menuitem label="short" value="short" />
+						<menuitem label="long" value="long" />
+						<menuitem label="narrow" value="narrow" />
+					</menupopup>
+				</menulist>
+			</hbox>
+
+		</vbox>
+
+	</prefpane>
+
+</prefwindow>

@@ -1,6 +1,6 @@
 IRDPrefManager = function() {
 
-    var startPoint="extensions.jalaliDateFormat.";
+    var startPoint="extensions.iraniandate.";
 
     var pref=Components.classes["@mozilla.org/preferences-service;1"].
         getService(Components.interfaces.nsIPrefService).
@@ -100,11 +100,28 @@ IRDColumnHandler = function(colName){
 		var header = gDBView.getMsgHdrAt(row);
 		var date = new Date(this._fetchDate(header));
 
-		var options = {
-			"year": "2-digit",
-			"month": "numeric",
-			"day": "numeric"
-		};
+		var yearStyle = IRDApp.prefsManager.getValue("yearStyle", "2-digit");
+		var monthStyle = IRDApp.prefsManager.getValue("monthStyle", "numeric");
+		var dayStyle = IRDApp.prefsManager.getValue("dayStyle", "numeric");
+		var weekStyle = IRDApp.prefsManager.getValue("weekStyle", "");
+
+		var consoleService = Components.classes["@mozilla.org/consoleservice;1"]
+		.getService(Components.interfaces.nsIConsoleService);
+		consoleService.logStringMessage("year style: " + yearStyle);
+
+		var options = {};
+		if(yearStyle){
+			options.year = yearStyle;
+		}
+		if(monthStyle){
+			options.month = monthStyle;
+		}
+		if(dayStyle){
+			options.day = dayStyle;
+		}
+		if(weekStyle){
+			options.weekday = weekStyle;
+		}
 
 		var dateString = date.toLocaleDateString('fa-IR', options);
 
