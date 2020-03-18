@@ -1,5 +1,6 @@
 
 IRDApp.prefsManager = new IRDPrefManager();
+IRDApp.log = log;
 
 observer = {
 	// Components.interfaces.nsIObserver

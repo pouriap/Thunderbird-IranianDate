@@ -11,7 +11,7 @@
 			<preference id="pref-yearStyle" name="extensions.iraniandate.yearStyle" type="string" />
 			<preference id="pref-monthStyle" name="extensions.iraniandate.monthStyle" type="string" />
 			<preference id="pref-dayStyle" name="extensions.iraniandate.dayStyle" type="string" />
-			<preference id="pref-weekStyle" name="extensions.iraniandate.weekStyle" type="string" />
+			<preference id="pref-weekDayStyle" name="extensions.iraniandate.weekDayStyle" type="string" />
 		</preferences>
 
 		<vbox align="start">
@@ -29,7 +29,7 @@
 			</hbox>
 			<hbox>
 				<label control="week-style" value="Week Style: " />
-				<menulist preference="pref-weekStyle" id="week-style" style="float:right;">
+				<menulist preference="pref-weekDayStyle" id="week-style" style="float:right;">
 					<menupopup>
 						<menuitem label="do not show" value="" />
 						<menuitem label="short" value="short" />

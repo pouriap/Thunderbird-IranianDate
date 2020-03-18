@@ -1,4 +1,4 @@
-IRDPrefManager = function() {
+function IRDPrefManager() {
 
     var startPoint="extensions.iraniandate.";
 
@@ -93,7 +93,7 @@ IRDPrefManager = function() {
 }
 
 
-IRDColumnHandler = function(colName){
+function IRDColumnHandler(colName){
 
 	this.getCellText=function(row, col){
 
@@ -103,11 +103,7 @@ IRDColumnHandler = function(colName){
 		var yearStyle = IRDApp.prefsManager.getValue("yearStyle", "2-digit");
 		var monthStyle = IRDApp.prefsManager.getValue("monthStyle", "numeric");
 		var dayStyle = IRDApp.prefsManager.getValue("dayStyle", "numeric");
-		var weekStyle = IRDApp.prefsManager.getValue("weekStyle", "");
-
-		var consoleService = Components.classes["@mozilla.org/consoleservice;1"]
-		.getService(Components.interfaces.nsIConsoleService);
-		consoleService.logStringMessage("year style: " + yearStyle);
+		var weekDayStyle = IRDApp.prefsManager.getValue("weekDayStyle", "");
 
 		var options = {};
 		if(yearStyle){
@@ -119,8 +115,8 @@ IRDColumnHandler = function(colName){
 		if(dayStyle){
 			options.day = dayStyle;
 		}
-		if(weekStyle){
-			options.weekday = weekStyle;
+		if(weekDayStyle){
+			options.weekday = weekDayStyle;
 		}
 
 		var dateString = date.toLocaleDateString('fa-IR', options);
@@ -152,4 +148,9 @@ IRDColumnHandler = function(colName){
 
 	thisgetSortLongForRow=function(hdr){return hdr.date;}
 
+}
+
+function log(text){
+	var consoleService = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
+	consoleService.logStringMessage(text);
 }
