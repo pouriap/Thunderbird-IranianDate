@@ -3,7 +3,6 @@ IRDApp.prefsManager = new IRDPrefManager();
 IRDApp.log = log;
 
 observer = {
-	// Components.interfaces.nsIObserver
 	observe: function(aMsgFolder, aTopic, aData)
 	{
 		gDBView.addColumnHandler("irDateCol", new IRDColumnHandler('irDateCol'));

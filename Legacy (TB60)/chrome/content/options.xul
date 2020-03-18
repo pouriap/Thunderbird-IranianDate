@@ -8,44 +8,18 @@
 	<prefpane id="options-pane" label="Date Format Settings">
 
 		<preferences>
-			<preference id="pref-yearStyle" name="extensions.iraniandate.yearStyle" type="string" />
 			<preference id="pref-monthStyle" name="extensions.iraniandate.monthStyle" type="string" />
-			<preference id="pref-dayStyle" name="extensions.iraniandate.dayStyle" type="string" />
 			<preference id="pref-weekDayStyle" name="extensions.iraniandate.weekDayStyle" type="string" />
-			<preference id="pref-timeStyle" name="extensions.iraniandate.timeStyle" type="string" />
 		</preferences>
 
 		<vbox align="start">
 
 			<hbox>
-				<label control="year-style" value="Year Style: " />
-				<menulist preference="pref-yearStyle" id="year-style">
-					<menupopup>
-						<menuitem label="do not show" value="" />
-						<menuitem label="short" value="2-digit" />
-						<menuitem label="long" value="numeric" />
-					</menupopup>
-				</menulist>
-			</hbox>
-
-			<hbox>
 				<label control="month-style" value="Month Style: " />
 				<menulist preference="pref-monthStyle" id="month-style">
 					<menupopup>
-						<menuitem label="do not show" value="" />
-						<menuitem label="digits" value="numeric" />
-						<menuitem label="name" value="short" />
-					</menupopup>
-				</menulist>
-			</hbox>
-
-			<hbox>
-				<label control="day-style" value="Day Style: " />
-				<menulist preference="pref-dayStyle" id="day-style">
-					<menupopup>
-						<menuitem label="do not show" value="" />
-						<menuitem label="short" value="numeric" />
-						<menuitem label="long" value="2-digit" />
+						<menuitem label="digits" value="2-digit" />
+						<menuitem label="name" value="long" />
 					</menupopup>
 				</menulist>
 			</hbox>
@@ -54,21 +28,8 @@
 				<label control="week-style" value="Week Style: " />
 				<menulist preference="pref-weekDayStyle" id="week-style">
 					<menupopup>
-						<menuitem label="do not show" value="" />
-						<menuitem label="short" value="short" />
+						<menuitem label="do not show" value="hidden" />
 						<menuitem label="long" value="long" />
-						<menuitem label="narrow" value="narrow" />
-					</menupopup>
-				</menulist>
-			</hbox>
-
-			<hbox>
-				<label control="time-style" value="Time Style: " />
-				<menulist preference="pref-timeStyle" id="time-style">
-					<menupopup>
-						<menuitem label="do not show" value="" />
-						<menuitem label="12-hour" value="12-hour" />
-						<menuitem label="24-hour" value="24-hour" />
 					</menupopup>
 				</menulist>
 			</hbox>

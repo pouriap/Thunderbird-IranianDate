@@ -99,38 +99,74 @@ function IRDColumnHandler(colName){
 
 		var header = gDBView.getMsgHdrAt(row);
 		var date = new Date(this._fetchDate(header));
+		var currentDate = new Date();
 
-		var yearStyle = IRDApp.prefsManager.getValue("yearStyle", "2-digit");
-		var monthStyle = IRDApp.prefsManager.getValue("monthStyle", "numeric");
-		var dayStyle = IRDApp.prefsManager.getValue("dayStyle", "numeric");
-		var weekDayStyle = IRDApp.prefsManager.getValue("weekDayStyle", "");
-		var timeStyle = IRDApp.prefsManager.getValue("timeStyle", "12-hour");
-
-		var options = {};
-		if(yearStyle){
-			options.year = yearStyle;
+		//fixed options
+		var yearStyle = "2-digit";
+		var dayStyle = "2-digit";
+		var hourStyle = "2-digit";
+		var minuteStyle = "2-digit";
+		
+		//customizeable options
+		var monthStyle = IRDApp.prefsManager.getValue("monthStyle", "2-digit");
+		var weekDayStyle = IRDApp.prefsManager.getValue("weekDayStyle", "hidden");
+		//sanitising input
+		if(monthStyle!="2-digit" && monthStyle!="long"){
+			monthStyle = "2-digit";
 		}
-		if(monthStyle){
-			options.month = monthStyle;
-		}
-		if(dayStyle){
-			options.day = dayStyle;
-		}
-		if(weekDayStyle){
-			options.weekday = weekDayStyle;
-		}
-		if(timeStyle){
-			options.hour = "numeric";
-			options.minute = "numeric";
-			options.hour12 = (timeStyle === "12-hour")? true : false;
+		if(weekDayStyle!="long" && weekDayStyle!="hidden"){
+			weekDayStyle = "hidden";
 		}
 
-		var dateString = date.toLocaleDateString('fa-IR', options);
+		var locale = "fa-IR-u-nu-latn-ca-persian";
+		
+		var year = date.toLocaleString(locale, {year:yearStyle});
+		var month = date.toLocaleString(locale, {month:monthStyle});
+		var day = date.toLocaleString(locale, {day:dayStyle});
+		var weekDay = (weekDayStyle != "hidden")? date.toLocaleString(locale, {weekday:weekDayStyle}) : "";
+		var time = date.toLocaleString(locale, {hour:hourStyle, minute:minuteStyle});
 
-		//fix for farsi
-		dateString = dateString.replace("بعدازظهر", "عصر").replace("قبل‌ازظهر", "صبح").replace("،", " - ");
+		var currentYear;
+		if(currentDate.toLocaleString(locale, {year:yearStyle}) == year){
+			currentYear = true;
+		}
+		else{
+			currentYear = false;
+		}
+		var currentDay;
+		if(date.toDateString() === currentDate.toDateString()){
+			currentDay = true;
+		}
+		else{
+			currentDay = false;
+		}
+
+		var placehodler;
+		if(monthStyle === "long"){
+			placeholder = "TT - \u202BWD DD MM YY\u202C";
+		}
+		else{
+			placeholder = "TT - YY/MM/DD WD";
+		}
+
+		//remove year if it's current year
+		if(currentYear){
+			placeholder = placeholder.replace(/YY./,"");
+		}
+		//only show time if it's current day
+		if(currentDay){
+			placeholder = "TT امروز";
+		}
+
+		dateString = placeholder
+			.replace("YY", year)
+			.replace("MM", month)
+			.replace("DD", day)
+			.replace("WD", weekDay)
+			.replace("TT", time);
 
 		return dateString;
+
 	}
 
 	this._fetchDate=function(header){

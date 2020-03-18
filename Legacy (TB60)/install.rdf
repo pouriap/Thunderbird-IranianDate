@@ -3,7 +3,7 @@
     <Description about="urn:mozilla:install-manifest">
         <em:id>iraniandate@pouria.p</em:id>
         <em:name>Iranian Date For ThunderBird</em:name>
-        <em:version>1.0</em:version>
+        <em:version>1.1</em:version>
         <em:description>Convert Date Column To Iranian (Persian/Jalali) Date Format.</em:description>
         <em:creator>Pouria Pirhadi</em:creator>
  		<em:optionsURL>chrome://iraniandate/content/options.xul</em:optionsURL>
