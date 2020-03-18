@@ -104,6 +104,7 @@ function IRDColumnHandler(colName){
 		var monthStyle = IRDApp.prefsManager.getValue("monthStyle", "numeric");
 		var dayStyle = IRDApp.prefsManager.getValue("dayStyle", "numeric");
 		var weekDayStyle = IRDApp.prefsManager.getValue("weekDayStyle", "");
+		var timeStyle = IRDApp.prefsManager.getValue("timeStyle", "12-hour");
 
 		var options = {};
 		if(yearStyle){
@@ -118,8 +119,16 @@ function IRDColumnHandler(colName){
 		if(weekDayStyle){
 			options.weekday = weekDayStyle;
 		}
+		if(timeStyle){
+			options.hour = "numeric";
+			options.minute = "numeric";
+			options.hour12 = (timeStyle === "12-hour")? true : false;
+		}
 
 		var dateString = date.toLocaleDateString('fa-IR', options);
+
+		//fix for farsi
+		dateString = dateString.replace("بعدازظهر", "عصر").replace("قبل‌ازظهر", "صبح").replace("،", " - ");
 
 		return dateString;
 	}
