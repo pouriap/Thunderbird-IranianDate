@@ -10,6 +10,7 @@
 		<preferences>
 			<preference id="pref-monthStyle" name="extensions.iraniandate.monthStyle" type="string" />
 			<preference id="pref-weekDayStyle" name="extensions.iraniandate.weekDayStyle" type="string" />
+			<preference id="pref-numbersStyle" name="extensions.iraniandate.numbersStyle" type="string" />
 		</preferences>
 
 		<vbox align="start">
@@ -18,8 +19,8 @@
 				<label control="month-style" value="Month Style: " />
 				<menulist preference="pref-monthStyle" id="month-style">
 					<menupopup>
-						<menuitem label="digits" value="2-digit" />
-						<menuitem label="name" value="long" />
+						<menuitem label="Month Number" value="2-digit" />
+						<menuitem label="Month Name" value="long" />
 					</menupopup>
 				</menulist>
 			</hbox>
@@ -28,8 +29,18 @@
 				<label control="week-style" value="Week Style: " />
 				<menulist preference="pref-weekDayStyle" id="week-style">
 					<menupopup>
-						<menuitem label="do not show" value="hidden" />
-						<menuitem label="long" value="long" />
+						<menuitem label="Hide" value="hidden" />
+						<menuitem label="Show" value="long" />
+					</menupopup>
+				</menulist>
+			</hbox>
+
+			<hbox>
+				<label control="numbers-style" value="Numbers Style: " />
+				<menulist preference="pref-numbersStyle" id="numbers-style">
+					<menupopup>
+						<menuitem label="Persian" value="arabext" />
+						<menuitem label="English" value="latn" />
 					</menupopup>
 				</menulist>
 			</hbox>

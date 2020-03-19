@@ -6,7 +6,6 @@ observer = {
 	observe: function(aMsgFolder, aTopic, aData)
 	{
 		gDBView.addColumnHandler("irDateCol", new IRDColumnHandler('irDateCol'));
-		gDBView.addColumnHandler("irReceivedCol", new IRDColumnHandler('irReceivedCol'));
 	}
 };
 

@@ -110,52 +110,75 @@ function IRDColumnHandler(colName){
 		//customizeable options
 		var monthStyle = IRDApp.prefsManager.getValue("monthStyle", "2-digit");
 		var weekDayStyle = IRDApp.prefsManager.getValue("weekDayStyle", "hidden");
+		var numbersStyle = IRDApp.prefsManager.getValue("numbersStyle", "arabext");
+		
 		//sanitising input
 		if(monthStyle!="2-digit" && monthStyle!="long"){
 			monthStyle = "2-digit";
 		}
-		if(weekDayStyle!="long" && weekDayStyle!="hidden"){
+		if(weekDayStyle!="hidden" && weekDayStyle!="long"){
 			weekDayStyle = "hidden";
 		}
+		if(numbersStyle!="arabext" && numbersStyle!="latn"){
+			numbersStyle = "arabext";
+		}
 
-		var locale = "fa-IR-u-nu-latn-ca-persian";
+		var locale = "fa-IR-u-nu-" + numbersStyle + "-ca-persian";
 		
 		var year = date.toLocaleString(locale, {year:yearStyle});
 		var month = date.toLocaleString(locale, {month:monthStyle});
 		var day = date.toLocaleString(locale, {day:dayStyle});
 		var weekDay = (weekDayStyle != "hidden")? date.toLocaleString(locale, {weekday:weekDayStyle}) : "";
-		var time = date.toLocaleString(locale, {hour:hourStyle, minute:minuteStyle});
+		var time = date.toLocaleString(locale, {hour:hourStyle, minute:minuteStyle, hour12: false});
+		
+		//fix for bug that doesn't prepend zero to farsei
+		if(time.length != 5){
+			var zero = (numbersStyle === "arabext")? "۰" : "0";
+			time = zero + time;
+		}
 
-		var currentYear;
+		var isCurrentYear;
 		if(currentDate.toLocaleString(locale, {year:yearStyle}) == year){
-			currentYear = true;
+			isCurrentYear = true;
 		}
 		else{
-			currentYear = false;
+			isCurrentYear = false;
 		}
-		var currentDay;
+		var isCurrentDay;
 		if(date.toDateString() === currentDate.toDateString()){
-			currentDay = true;
+			isCurrentDay = true;
 		}
 		else{
-			currentDay = false;
+			isCurrentDay = false;
+		}
+		var isYesterday;
+		var yesterdayDate = new Date();
+		yesterdayDate.setDate(currentDate.getDate() - 1);
+		if(date.toDateString() === yesterdayDate.toDateString()){
+			isYesterday = true;
+		}
+		else{
+			isYesterday = false
 		}
 
 		var placehodler;
 		if(monthStyle === "long"){
-			placeholder = "TT - \u202BWD DD MM YY\u202C";
+			placeholder = "TT ،\u202BWD DD MM YY\u202C";
 		}
 		else{
-			placeholder = "TT - YY/MM/DD WD";
+			placeholder = "TT ،YY/MM/DD WD";
 		}
 
 		//remove year if it's current year
-		if(currentYear){
+		if(isCurrentYear){
 			placeholder = placeholder.replace(/YY./,"");
 		}
-		//only show time if it's current day
-		if(currentDay){
+		//only show time if it's current day or yesterday
+		if(isCurrentDay){
 			placeholder = "TT امروز";
+		}
+		else if(isYesterday){
+			placeholder = "TT دیروز";
 		}
 
 		dateString = placeholder
@@ -172,9 +195,6 @@ function IRDColumnHandler(colName){
 	this._fetchDate=function(header){
 		if(colName == "irDateCol"){
 			return header.date / 1000;
-		} 
-		else if(colName == "irReceivedCol"){
-			return header.getUint32Property("dateReceived") * 1000;
 		} 
 		else{
 			return null;

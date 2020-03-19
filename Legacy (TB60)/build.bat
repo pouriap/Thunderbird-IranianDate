@@ -1,1 +1,1 @@
-zip -r IranianDate.xpi *
+zip -r IranianDate.xpi * -x "*.xpi" "*.bat" "*.psd"

@@ -7,10 +7,7 @@
 		<treecols id="threadCols">
 			<splitter class="tree-splitter" />
 			<treecol id="irDateCol" persist="hidden ordinal width" currentView="unthreaded" flex="2"
-				label="Date(Iranian)" tooltiptext="Sort by date" />
-			<splitter class="tree-splitter" />
-			<treecol id="irReceivedCol" persist="hidden ordinal width" currentView="unthreaded" flex="2"
-				label="Received(Iranian)" tooltiptext="Sort by received date" />
+				label="تاریخ" tooltiptext="مرتب کردن" />
 		</treecols>
 	</tree>
 
