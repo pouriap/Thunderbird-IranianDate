@@ -1,4 +1,4 @@
-#Iranian (Persian/Jalali) Date Column For ThunderBird
+# Iranian (Persian/Jalali) Date Column For ThunderBird
 
 This addon has two versions. A legacy version that works with ThunderBird 60.* and a MailExtension version 
 that will work with ThunderBird 68+. 
