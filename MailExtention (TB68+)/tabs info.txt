@@ -1,0 +1,20 @@
+tab:  
+Object { id: 1, index: 0, windowId: 3, highlighted: false, active: false, status: "complete", width: 1079, height: 294, mailTab: true }
+
+tab:  
+Object { id: 2, index: 1, windowId: 3, highlighted: true, active: true, status: "complete", width: 1280, height: 522, mailTab: false }
+
+
+function logTabs(tabs) {
+  for (let tab of tabs) {
+    // tab.url requires the `tabs` permission
+    console.log("tab: ", tab);
+  }
+}
+
+function onError(error) {
+  console.log(`Error: ${error}`);
+}
+
+let querying = browser.tabs.query({});
+querying.then(logTabs, onError);
