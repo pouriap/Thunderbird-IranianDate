@@ -1,22 +1,28 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
-    <Description about="urn:mozilla:install-manifest">
-        <em:id>iraniandate@pouria.p</em:id>
-        <em:name>Iranian Date For Thunderbird</em:name>
-        <em:version>1.1</em:version>
-        <em:description>Adds a new Iranian(Persian/Jalali) date column to Thunderbird.</em:description>
-        <em:creator>Pouria Pirhadi</em:creator>
- 		<em:optionsURL>chrome://iraniandate/content/options.xul</em:optionsURL>
-        <em:iconURL>chrome://iraniandate/content/icon.png</em:iconURL>
-        <em:type>2</em:type>
-
-        <em:targetApplication>
-            <Description>
-                <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
-                <em:minVersion>60.0</em:minVersion>
-                <em:maxVersion>60.*</em:maxVersion>
-            </Description>
-        </em:targetApplication>
-
-    </Description>
+  <Description about="urn:mozilla:install-manifest">
+    <em:id>iraniandate@pouria.p</em:id>
+    <em:name>Iranian Date For ThunderBird and SeaMonkey</em:name>
+    <em:version>1.1</em:version>
+    <em:description>Adds a new Iranian(Persian/Jalali) date column to ThunderBird.</em:description>
+    <em:creator>Pouria Pirhadi</em:creator>
+    <em:optionsURL>chrome://iraniandate/content/options.xul</em:optionsURL>
+    <em:iconURL>chrome://iraniandate/content/icon.png</em:iconURL>
+    <em:type>2</em:type>
+    <em:targetApplication>
+      <Description>
+        <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
+        <em:minVersion>60.0</em:minVersion>
+        <em:maxVersion>60.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+    <!-- SeaMonkey Support -->
+    <em:targetApplication>
+      <em:Description>
+        <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
+        <em:minVersion>2.0</em:minVersion>
+        <em:maxVersion>2.*</em:maxVersion>
+      </em:Description>
+    </em:targetApplication>
+  </Description>
 </RDF>
