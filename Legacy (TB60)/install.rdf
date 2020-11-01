@@ -2,7 +2,7 @@
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
   <Description about="urn:mozilla:install-manifest">
     <em:id>iraniandate@pouria.p</em:id>
-    <em:name>Iranian Date For SeaMonkey</em:name>
+    <em:name>Iranian Date For ThunderBird and SeaMonkey</em:name>
     <em:version>1.1</em:version>
     <em:description>Adds a new Iranian(Persian/Jalali) date column to ThunderBird.</em:description>
     <em:creator>Pouria Pirhadi</em:creator>
