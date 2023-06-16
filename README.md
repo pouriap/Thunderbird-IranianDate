@@ -1,11 +1,9 @@
 # Iranian (Persian/Jalali) Date Column For Thunderbird
 
-This addon has two versions. A legacy version that works with Thunderbird 60.* and a MailExtension version 
-that will work with Thunderbird 68+. 
+## This project is archived
+Due to API changes in Thunderbird this addon no longer works in verison 68+.
 
-The MailExtension version is currently under developement but the legacy extension is ready to use.
+[A new addon](https://github.com/mhdzli/mahour) has been developed by mhdzli which is based on this addon and creates a Persian date column and works perfectly.
 
-The `build.bat` file creates the xpi.
-
-The `icon.psd` is the icon.
-
+## About this addon
+This addon creates a new Persian date column for Thunderbird. It only works with Thunderbird version 60.* and below.
